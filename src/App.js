@@ -71,9 +71,9 @@ class App extends Component {
                 if (todo.checked === false) {
                     list.push(
                         <div>
-                            <input type="checkbox" unchecked onChange={() => this.checkTodo(todo.id, todo.checked)}
-                            autocomplete="off"></input>
-                            <p>{todo.name}</p>
+                            <label><input type="checkbox" name="any" unchecked onChange={() => this.checkTodo(todo.id, todo.checked)}
+                                autocomplete="off"></input>
+                            <i class="fa fa-check"></i>{todo.name}</label>
                             <button onClick={() => this.deleteTodo(todo.id)}>Delete</button>
                         </div>
                     );
@@ -88,9 +88,9 @@ class App extends Component {
                 if (todo.checked === true) {
                     listdone.push(
                         <div>
-                            <input type="checkbox" checked onChange={() => this.checkTodo(todo.id, todo.checked)}></input>
-                            <p>{todo.name}</p>
-                            <button onClick={() => this.deleteTodo(todo.id)}>Delete</button>
+                            <label><input type="checkbox" name="any" checked onChange={() => this.checkTodo(todo.id, todo.checked)}></input>
+                            <i class="fa fa-check"></i>{todo.name}
+                            <button onClick={() => this.deleteTodo(todo.id)}>Delete</button></label>
                         </div>
                     );
                 }
@@ -100,16 +100,23 @@ class App extends Component {
 
         return (
             <div className="App">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
                 <header className="App-header">
-                    <input type='text' name='title' value={this.state.title}
-                        onChange={this.handleChange.bind(this)}
-                        onKeyPress={this.handleKeyPress}
-                    />
-                    {todoList()}
-                    {todoListDone()}
-                    <p></p>
-                    <button onClick={() => this.setTodo()}
-                    ></button>
+                    <h1>To-do list</h1>
+                    <div class="container" >
+                    <div class="input-task">
+                        <input type='text' name='title' value={this.state.title}
+                            onChange={this.handleChange.bind(this)}
+                            onKeyPress={this.handleKeyPress} />
+                        <button type="submit" onClick={() => this.setTodo()}>Add a task</button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h2><i class="fas fa-caret-down"></i> Scheduled</h2>
+                        {todoList()}
+                        <h2><i class="fas fa-caret-down"></i> Done</h2>
+                        {todoListDone()}
+                    </div>
                 </header>
             </div>
         );
