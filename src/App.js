@@ -71,7 +71,7 @@ class App extends Component {
                 if (todo.checked === false) {
                     list.push(
                         <div>
-                            <label><input type="checkbox" name="any" unchecked onChange={() => this.checkTodo(todo.id, todo.checked)}
+                            <label><input type="checkbox" name="[i]" unchecked onChange={() => this.checkTodo(todo.id, todo.checked)}
                                 autocomplete="off"></input>
                             <i class="fa fa-check"></i>{todo.name}</label>
                             <button onClick={() => this.deleteTodo(todo.id)}>Delete</button>
