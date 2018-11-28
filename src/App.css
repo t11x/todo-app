@@ -56,20 +56,22 @@ h1 {
   padding: 12px;
   text-align: center;
   color: white;
-  background-color: #796eff;
+  background-color: #0B105A;
+  top: 0;
+  position: sticky;
 }
 
 h2 {
+  text-align: left;
   padding: 12px 20px;
   margin-bottom: 0;
 }
 
-.input-title {
+.input-task {
   display: flex;
-  justify-content: center;
 }
 
-input[type="text"]#title {
+input[type="text"] {
   font-size: 16px;
   outline: none;
   padding: 12px;
@@ -78,8 +80,17 @@ input[type="text"]#title {
   transition: .2s;
 }
 
-input[type="text"]#title:focus {
+input[type="text"]:focus {
   box-shadow: 0 4px 14px 0 #ddd;
+}
+
+@media screen and (max-width: 800px) {
+  input[type="text"] {
+    width: 100%;
+  }
+  button[type="submit"] {
+    float: right;
+  }
 }
 
 button[type="submit"] {
@@ -109,6 +120,16 @@ label {
   display: table;
 }
 
+div.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.task:hover {
+  background-color: #F6F8F9;
+}
+
 input[type="checkbox"] {
   display: none;
 }
@@ -127,4 +148,22 @@ input[type="checkbox"]:checked + i {
   border-radius: 50%;
   color: white;
   background-color: #00d478;
+}
+
+button.delete {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  color: red;
+  background-color: transparent;
+  transition: .2s;
+}
+
+button.delete:hover {
+  color: white;
+  background-color: red;
 }

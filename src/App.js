@@ -70,11 +70,11 @@ class App extends Component {
             this.state.todos.forEach((todo) => {
                 if (todo.checked === false) {
                     list.push(
-                        <div>
+                        <div class="task">
                             <label><input type="checkbox" name="[i]" unchecked onChange={() => this.checkTodo(todo.id, todo.checked)}
                                 autocomplete="off"></input>
                             <i class="fa fa-check"></i>{todo.name}</label>
-                            <button onClick={() => this.deleteTodo(todo.id)}>Delete</button>
+                            <button class="delete" onClick={() => this.deleteTodo(todo.id)}><i class="fas fa-times"></i></button>
                         </div>
                     );
                 }
@@ -87,10 +87,10 @@ class App extends Component {
             this.state.todos.forEach((todo) => {
                 if (todo.checked === true) {
                     listdone.push(
-                        <div>
+                        <div class="task">
                             <label><input type="checkbox" name="any" checked onChange={() => this.checkTodo(todo.id, todo.checked)}></input>
-                            <i class="fa fa-check"></i>{todo.name}
-                            <button onClick={() => this.deleteTodo(todo.id)}>Delete</button></label>
+                            <i class="fa fa-check"></i>{todo.name}</label>
+                            <button class="delete" onClick={() => this.deleteTodo(todo.id)}><i class="fas fa-times"></i></button>
                         </div>
                     );
                 }
@@ -112,9 +112,9 @@ class App extends Component {
                         </div>
                     </div>
                     <div class="container">
-                        <h2><i class="fas fa-caret-down"></i> Scheduled</h2>
+                        <h2><i class="fas fa-clipboard-list"></i> Scheduled</h2>
                         {todoList()}
-                        <h2><i class="fas fa-caret-down"></i> Done</h2>
+                        <h2><i class="fas fa-clipboard-check"></i> Done</h2>
                         {todoListDone()}
                     </div>
                 </header>
