@@ -19,6 +19,7 @@ class App extends Component {
     state = {
         todos: [],
         index: 0,
+        
     }
 
     componentDidMount() {
@@ -44,6 +45,7 @@ class App extends Component {
             'checked': false,
         });
         // this.state.todos.push(todo);
+        
         this.setState({ title: '' })
     }
     deleteTodo(id) {
@@ -71,7 +73,7 @@ class App extends Component {
                 if (todo.checked === false) {
                     list.push(
                         <div class="task">
-                            <label><input type="checkbox" name="[i]" unchecked onChange={() => this.checkTodo(todo.id, todo.checked)}
+                            <label><input type="checkbox" name="[i]" checked={ todo.checked || false } onChange={() => this.checkTodo(todo.id, todo.checked)}
                                 autocomplete="off"></input>
                             <i class="fa fa-check"></i>{todo.name}</label>
                             <button class="delete" onClick={() => this.deleteTodo(todo.id)}><i class="fas fa-times"></i></button>
