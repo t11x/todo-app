@@ -40,7 +40,7 @@ class App extends Component {
     setTodo() {
         console.log(this.state.todos.length);
         if (this.state.title.length >0){
-        firebase.database().ref(this.state.todos.length).set({
+        firebase.database().ref(this.state.index +=1).set({
             'name': this.state.title,
             'description': 'todo' + this.state.todos.length,
             'checked': false,
