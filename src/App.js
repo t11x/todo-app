@@ -39,11 +39,12 @@ class App extends Component {
     }
     setTodo() {
         console.log(this.state.todos.length);
+        if (this.state.title.length >0){
         firebase.database().ref(this.state.todos.length).set({
             'name': this.state.title,
             'description': 'todo' + this.state.todos.length,
             'checked': false,
-        });
+        });}
         // this.state.todos.push(todo);
         
         this.setState({ title: '' })
